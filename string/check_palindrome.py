@@ -1,0 +1,26 @@
+#User function Template for python3
+class Solution:
+	def isPlaindrome(self, S):
+		
+		n = len(S)
+		
+		for i in range(int(n/2)):
+		    if S[i]!=S[n-1-i]:
+		        return 0
+		return 1        
+
+
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__':
+	T=int(input())
+	for i in range(T):
+		S = input()
+		ob = Solution()
+		answer = ob.isPlaindrome(S)
+		print(answer)
+
+# } Driver Code Ends
