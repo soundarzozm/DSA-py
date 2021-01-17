@@ -19,6 +19,7 @@ def main():
         product = getMinMax(a, n)
         print(product[0], end=" ")
         print(product[1])
+        
         T -= 1
 
 
