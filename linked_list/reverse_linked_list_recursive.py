@@ -14,28 +14,34 @@ class node:
 # head of the modified linked list
 def reverseList(head):
     
-    curr = head
     prev = None
-    next1 = head
+    next1 = head.next
 
-    while next1!=None:
+    def reverse(curr, prev, next1):
 
-        #print("current", curr.data)
+        if next1==None:
+            curr.next = prev
+            return curr
 
         next1 = curr.next
         curr.next = prev
-        
-        
-        #print("next", next1.data)
-
         prev = curr
         curr = next1
+        next1 = curr.next
 
-        #print("prev", prev.data)
+        """print("curr", curr.data)
+        print("prev", prev.data)
+        
+        if next1:
+            print("next", next1.data)"""
 
-    head = prev
+        return reverse(curr, prev, next1)    
 
-    return head 
+    head = reverse(head, prev, next1)
+
+    return head
+
+    
 
 
 
