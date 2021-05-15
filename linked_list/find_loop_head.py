@@ -1,4 +1,4 @@
-def detectAndRemoveLoop(head):
+def findLoopHead(head):
      
     if (head == None or head.next == None):
         return None
@@ -24,5 +24,5 @@ def detectAndRemoveLoop(head):
     while (slow != fast):
         slow = slow.next
         fast = fast.next
-  
+
     return slow
