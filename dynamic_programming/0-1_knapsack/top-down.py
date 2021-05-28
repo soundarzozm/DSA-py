@@ -1,3 +1,5 @@
+import numpy as np
+
 def knapsack(wt, val, n, W):
 
     for i in range(n+1):
@@ -23,10 +25,8 @@ if __name__=="__main__":
     W = 0
     n = 0
 
-    t = []
+    t = [[None] * (W+1)] * (n+1)
 
-    for i in range(n+1):
-        for j in range(W+1):
-            t[i][j]=-1
+    t = np.array(t)
 
     print(knapsack(wt, val, n, W))
