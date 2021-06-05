@@ -19,7 +19,7 @@ def minSubsetDiff(wt, n, W):
                 t[i][j] = t[i-1][j]
 
     min1 = 999999
-    print(t)
+    
     for ind in range(int(len(t[-1])/2)):
         if t[-1][ind]==True:
             min1 = min(min1, sum - 2*ind)
