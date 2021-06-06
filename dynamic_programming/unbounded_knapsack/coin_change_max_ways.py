@@ -22,8 +22,8 @@ def subsetSum(wt, n, W):
 
 
 if __name__=="__main__":
-    coins = [2, 3, 7, 8, 10]
-    sum = 15
+    coins = [1, 2, 3]
+    sum = 5
     n = len(coins)
 
     t = [[None] * (sum+1)] * (n+1)
