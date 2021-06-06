@@ -20,13 +20,13 @@ def unboundedKnapsack(wt, val, n, W):
 
 
 if __name__=="__main__":
-    wt = []
-    val = []
-    W = 0
-    n = 0
+    lt = [1, 2, 3, 4, 5]
+    price = [3, 7, 2, 8, 9]
+    N = 8
+    n = len(price)
 
-    t = [[None] * (W+1)] * (n+1)
+    t = [[None] * (N+1)] * (n+1)
 
     t = np.array(t)
 
-    print(unboundedKnapsack(wt, val, n, W))
+    print(unboundedKnapsack(lt, price, n, N))
