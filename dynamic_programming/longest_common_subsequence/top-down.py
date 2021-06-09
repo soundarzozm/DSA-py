@@ -7,7 +7,7 @@ def LCS(x, y, m, n):
         for j in range(n+1):
             if i==0 or j==0:
                 t[i][j] = 0
-    
+
     #Choice Diagram
     for i in range(1, m+1):
         for j in range(1, n+1):
@@ -20,14 +20,14 @@ def LCS(x, y, m, n):
 
 if __name__=="__main__":
 
-    x = ""
+    x = "abcdef"
     m = len(x)
 
-    y = ""
+    y = "abxef"
     n = len(y)
 
     #Initialization
-    t = [[None] * (m+1)] * (n+1)
+    t = [[None] * (n+1)] * (m+1)
     t = np.array(t)
 
     print(LCS(x, y, m, n))
