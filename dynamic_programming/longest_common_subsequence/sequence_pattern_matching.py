@@ -16,7 +16,7 @@ def LCS(x, y, m, n):
             else:
                 t[i][j] = max(t[i-1][j], t[i][j-1])
 
-    if t[m][n] == m or t[m][n]==n:
+    if t[m][n] == min(m, n):
         return True
     return False
 
