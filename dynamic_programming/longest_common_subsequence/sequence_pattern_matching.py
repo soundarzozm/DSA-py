@@ -25,7 +25,7 @@ if __name__=="__main__":
     x = "axy"
     m = len(x)
 
-    y = "adycpx"
+    y = "adxcpy"
     n = len(y)
 
     #Initialization
