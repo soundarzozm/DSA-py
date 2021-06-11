@@ -1,5 +1,3 @@
-import numpy as np
-
 def LCS(x, y, m, n):
 
     #Base Case
@@ -27,7 +25,6 @@ if __name__=="__main__":
     n = len(y)
 
     #Initialization
-    t = [[None] * (n+1)] * (m+1)
-    t = np.array(t)
+    t = [[None for i in range(n+1)] for j in range(m+1)]
 
     print(LCS(x, y, m, n))
