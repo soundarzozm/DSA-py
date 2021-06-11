@@ -21,7 +21,7 @@ def isPalindrome(string):
     return False
 
 if __name__=="__main__":
-    string = "ababbbabbababa"
+    string = "nitik"
     n = len(string)
 
     INT_MAX = sys.maxsize
