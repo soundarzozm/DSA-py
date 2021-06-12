@@ -14,7 +14,7 @@ def scrambledString(a, b):
 
     #Loop
     for i in range(1, n):
-        if (scrambledString(a[:i], b[-i:]) & scrambledString(a[i:], b[:-i])):
+        if (scrambledString(a[:i], b[n-i:]) & scrambledString(a[i:], b[:n-i])):
             flag1 = True
         if (scrambledString(a[:i], b[:i]) & scrambledString(a[i:], b[i:])):
             flag2 = True
