@@ -1,6 +1,9 @@
 def booleanParanthesization(string, i, j, isTrue):
 
     #Initialization
+    key = str(i) + "_" + str(j) + "_" + str(isTrue)
+    if key in t.keys():
+        return t[key]
     ans = 0
 
     #Base Case
@@ -9,14 +12,15 @@ def booleanParanthesization(string, i, j, isTrue):
     if i==j:
         if isTrue==1:
             if string[i]=="T":
-                return 1
+                t[key] = 1
             else:
-                return 0
+                t[key] = 0
         else:
             if string[i]=="F":
-                return 1
+                t[key] = 1
             else:
-                return 0
+                t[key] = 0
+        return t[key]
 
     #Loop
     for k in range(i+1, j, 2):
@@ -44,11 +48,14 @@ def booleanParanthesization(string, i, j, isTrue):
             else:
                 ans += (leftFalse * rightFalse)
 
-    return ans
+    t[key] = ans
+    return t[key]
 
-if __name__ == "__main__":
+if __name__=="__main__":
 
     string = "T|T&F^T"
     n = len(string)
+
+    t = {}
 
     print(booleanParanthesization(string, 0 , n-1, 1))
