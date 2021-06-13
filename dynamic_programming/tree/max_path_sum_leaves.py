@@ -11,7 +11,9 @@ def solve(root):
     right = solve(root.right, result)
 
     #Induction
-    i_am_not_root = max(root.data + max(left, right), root.data)
+    i_am_not_root = root.data + max(left, right)
+    if root.left==None and root.right==None:
+        i_am_not_root = max(i_am_not_root, root.data)
     i_am_root = root.data + left + right
     ans = max(i_am_root, i_am_not_root)
     result = max(ans, result)

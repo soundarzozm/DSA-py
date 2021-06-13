@@ -1,4 +1,4 @@
-def solve(root, result):
+def solve(root):
 
     #Base cases
     if root == None:
@@ -18,7 +18,7 @@ def solve(root, result):
 
 if __name__ == "__main__":
 
-    result = 0
+    solve.result = float('-inf')
 
-    solve(root, result)
-    return result
+    solve(root)
+    print(solve.result)
