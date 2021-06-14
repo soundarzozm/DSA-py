@@ -18,10 +18,14 @@ def dfs(graph, node):
         dfs_arr.append(node)
         for i in graph.adjList[node]:
             search(i)
-            
+
         return None
 
     search(node)
+
+    for i in graph.nodes:
+        if visited[i]==False:
+            search(i)
 
     return dfs_arr
 
