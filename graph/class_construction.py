@@ -25,3 +25,31 @@ class Graph:
 
     def degree(self, node):
         return len(self.adjList[node])
+
+class WeightedGraph:
+
+    def __init__(self, bidir=True):
+        self.nodes = []
+        self.adjList = {}
+        self.bidir = bidir
+
+    def createNode(self, node):
+        if node not in self.adjList.keys():
+            self.nodes.append(node)
+            self.adjList[node] = []
+
+    def print(self):
+        for node in self.nodes:
+            print(node, "->", self.adjList[node])
+
+    def addEdge(self, u, v, w):
+        self.createNode(u)
+        self.createNode(v)
+
+        self.adjList[u].append((v, w))
+
+        if self.bidir == True:
+            self.adjList[v].append((u, w))
+
+    def degree(self, node):
+        return len(self.adjList[node])
