@@ -1,6 +1,6 @@
 from class_construction import WeightedGraph
 
-def topo_sort_dfs_weighted(graph):
+def topoSortDFSWeighted(graph):
     stack = []
     dfs_arr = []
     visited = {}
@@ -27,6 +27,22 @@ def topo_sort_dfs_weighted(graph):
 
     return stack[::-1]
 
+def shortestDistance(source, graph):
+    distance = {}
+    for i in graph.nodes:
+        distance[i] = float('inf')
+    topo = topoSortDFSWeighted(graph)
+
+    distance[source] = 0
+
+    while topo:
+        i = topo.pop(0)
+        for node, weight in graph.adjList[i]:
+                if distance[node] > distance[i] + weight:
+                    distance[node] = distance[i] + weight
+
+    return distance
+
 if __name__ == "__main__":
 
     graph = WeightedGraph(bidir = False)
@@ -39,5 +55,4 @@ if __name__ == "__main__":
     graph.addEdge(4, 5, 4)
     graph.addEdge(5, 3, 1)
 
-    print(graph.adjList)
-    print(topo_sort_dfs_weighted(graph))
+    print(shortestDistance(1, graph))
