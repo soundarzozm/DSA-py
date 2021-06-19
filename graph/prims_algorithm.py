@@ -1,5 +1,5 @@
 from class_construction import WeightedGraph
-import heapq
+import heapq as hp
 
 def prim(graph, node):
     key = {}
@@ -9,7 +9,19 @@ def prim(graph, node):
         key[i] = float('inf')
         mst[i] = False
         parent[i] = -1
-    key[node] = 0
+    heap = []
+    hp.heappush(heap, (0, node))
+
+    while heap:
+        dist, node = hp.heappop(heap)
+        mst[node] = True
+        for i in graph.adjList[node]:
+            if mst[i[0]]==False:
+                if key[i[0]] > i[1]:
+                    key[i[0]] = i[1]
+                    parent[i[0]] = node
+                    hp.heappush(heap, (key[i[0]], i[0]))
+    return key
 
 if __name__ == "__main__":
 
@@ -22,4 +34,4 @@ if __name__ == "__main__":
     graph.addEdge(1, 2, 3)
     graph.addEdge(2, 4, 7)
 
-    print(graph.adjList)
+    print(prim(graph, 0))
