@@ -21,7 +21,10 @@ def prim(graph, node):
                     key[i[0]] = i[1]
                     parent[i[0]] = node
                     hp.heappush(heap, (key[i[0]], i[0]))
-    return key
+    for i in parent.keys():
+        parent[i] = (parent[i], key[i])
+
+    return parent
 
 if __name__ == "__main__":
 
