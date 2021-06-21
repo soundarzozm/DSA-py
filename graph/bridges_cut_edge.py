@@ -29,7 +29,7 @@ def dfs(graph, source):
                 if low[i] != time[i]:
                     low[node] = low[i]
         if prev!=-1:
-            if low[node] > low[prev]:
+            if low[node] > time[prev]:
                 bridges.append((prev, node))
 
         return None
