@@ -3,15 +3,15 @@
 def Min(a, b): 
     return min(a, b) 
   
-def findMinInsertionsDP(str1, n): 
+def findMinInsertionsDP(str1, m): 
   
-    table = [[0 for i in range(n)]  
-                for i in range(n)] 
+    table = [[0 for i in range(m)]  
+                for i in range(m)] 
     l, h, gap = 0, 0, 0
   
-    for gap in range(1, n): 
+    for gap in range(1, m): 
         l = 0
-        for h in range(gap, n): 
+        for h in range(gap, m): 
             if str1[l] == str1[h]: 
                 table[l][h] = table[l + 1][h - 1] 
             else: 
@@ -19,7 +19,7 @@ def findMinInsertionsDP(str1, n):
                                    table[l + 1][h]) + 1) 
             l += 1
   
-    return table[0][n - 1]
+    return table[0][m - 1]
 
 for _ in range(int(input())):
 
