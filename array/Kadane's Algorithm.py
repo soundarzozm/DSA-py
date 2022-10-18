@@ -12,5 +12,9 @@ for _ in range(int(input())):
         
         if locsum > glosum:
             glosum = locsum
+            
+        #if sum goes below 0
+        if locsum < 0:
+            locsum = 0
     
     print(glosum)  
