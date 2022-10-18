@@ -20,22 +20,22 @@ class Solution:
         
         main.next = None
         
-        dick = {}
-        dick[head.data]=1
+        dict = {}
+        dict[head.data]=1
         
         while head1 and head1.next:
             
             try:
-                dick[head1.data]+=1
+                dict[head1.data]+=1
                 head1 = head1.next
             except:
-                dick[head1.data]=1
+                dict[head1.data]=1
                 main.next = head1
                 head1 = head1.next
                 main = main.next
                 main.next = None
         
-        if head1.data not in dick.keys():
+        if head1.data not in dict.keys():
             main.next = head1
 
         return head        
