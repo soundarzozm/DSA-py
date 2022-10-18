@@ -1,6 +1,6 @@
 #User function Template for python3
 class Solution:
-	def isPlaindrome(self, S):
+	def isPalindrome(self, S):
 		
 		n = len(S)
 		
@@ -20,7 +20,7 @@ if __name__ == '__main__':
 	for i in range(T):
 		S = input()
 		ob = Solution()
-		answer = ob.isPlaindrome(S)
+		answer = ob.isPalindrome(S)
 		print(answer)
 
 # } Driver Code Ends
