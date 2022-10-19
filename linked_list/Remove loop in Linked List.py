@@ -8,6 +8,8 @@ class Node:
 
 '''
 
+#This method is called the rabbit and hare method
+
 def removeLoop(head):
     
     ptr1 = head
