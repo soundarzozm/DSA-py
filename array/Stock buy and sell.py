@@ -1,3 +1,5 @@
+#array's question regarding stock price solved in O(n) instead of O(n^2)
+
 for _ in range(int(input())):
     
     result = []
