@@ -1,19 +1,29 @@
-for _ in range(int(input())):
-    
-    n = int(input())
-    arr = list(map(int, input().split()))
-    
-    def rev_list(arr, start, end):
-        
-        if start>=end:
-            return
-            
-        arr[start], arr[end] = arr[end], arr[start]
-        
-        rev_list(arr, start+1, end-1)
-    
-    rev_list(arr, 0, n-1)
-    
-    for x in range(n-1):
-        print(arr[x], end=" ")
-    print(arr[n-1], end="\n")    
+# Reversing an array
+# TIME - O(n)
+# SPACE - O(1)
+
+def reverse(arr, n):
+    # Use two pointers
+    # l - Left pointer (initially the first index)
+    # r - Right pointer (initally the last index)
+    l = 0
+    r = n-1
+
+    # Iterate through half of the array, swapping the left value with the right value in each pass
+    # When you reach the mid point, all the elements will be swapped
+    while l < r:
+        buffer = arr[l]
+        arr[l] = arr[r]
+        arr[r] = buffer
+        l += 1
+        r -= 1
+
+    return arr
+
+
+if __name__ == "__main__":
+    for _ in range(int(input())):
+        n = int(input())
+        arr = list(map(int, input().split()))
+
+        print(reverse(arr, n))
