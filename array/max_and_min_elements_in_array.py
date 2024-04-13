@@ -1,31 +1,31 @@
-#User function Template for python3
+# Finding the maximum and minimum element in the array
+# TIME - O(n)
+# SPACE - O(1)
+import sys
 
-def getMinMax(arr, n):
-    result = [min(arr), max(arr)]
-    return result
+# Store INT_MAX and INT_MIN values
+max_size = sys.maxsize
+min_size = -sys.maxsize - 1
 
-#{ 
-#  Driver Code Starts
-#Initial Template for Python 3
 
-def main():
+def findMaxAndMin(arr, n):
+    # Initialize the maxElement and minElement variables with INT_MIN and INT_MAX respectively
+    minElement = max_size
+    maxElement = min_size
 
-    T = int(input())
+    # Iterate through the array and with each pass, compare the element with minElement and maxElement and replace wherever required
+    for i in arr:
+        if i > maxElement:
+            maxElement = i
+        if i < minElement:
+            minElement = i
 
-    while(T > 0):
-        n = int(input())
-        a = [int(x) for x in input().strip().split()]
-        
-        product = getMinMax(a, n)
-        print(product[0], end=" ")
-        print(product[1])
-        
-        T -= 1
+    return maxElement, minElement
 
 
 if __name__ == "__main__":
-    main()
+    for _ in range(int(input())):
+        n = int(input())
+        arr = list(map(int, input().split()))
 
-
-
-# } Driver Code Ends
+        print(findMaxAndMin(arr, n))
