@@ -27,6 +27,12 @@ class Solution:
         # return sum(ansArray)
 
         # O(1) Space
+        # Same logic as Two Sum II and Container with Most Water
+        # If left is less, move left, otherwise move right
+
+        # Approach this problem like a real life situation
+        # How can you figure out how much water can be stored in a position?
+        # By checking the maxLeft and maxRight values
         ans = 0
         l = 0
         r = len(height) - 1
@@ -37,10 +43,17 @@ class Solution:
         while l < r:
             if height[l] < height[r]:
                 l += 1
+
+                # Step - 1: Find the minimum of maxLeft and maxRight. This is our maxWater that can be stored
+                # Step - 2: Subtract the current height from this value since we have to count the current height.
+                # This is the actual water that can be stored.
+                # Step - 3: If this goes negative, we need to take it as 0 since we can't have negative water
                 ans += max(0, min(maxLeft, maxRight) - height[l])
                 maxLeft = max(maxLeft, height[l])
             else:
                 r -= 1
+
+                # Same logic as above case
                 ans += max(0, min(maxLeft, maxRight) - height[r])
                 maxRight = max(maxRight, height[r])
 
