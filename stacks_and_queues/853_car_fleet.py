@@ -6,7 +6,7 @@ class Solution:
 
         # Create array cars combining position and speed
         for i in range(len(position)):
-            cars.append([position[i], speed[i]])
+            cars.append((position[i], speed[i]))
 
         # Sort the array with position
         # We need to compute from the end of the array to the start
@@ -19,12 +19,12 @@ class Solution:
         # This is because since it is slow it will never form a fleet
         # If not, it means the current car will form a fleet since it is faster
         for p, s in cars:
+            time = (target - p) / s
             if stack:
-                time = (target - p) / s
                 if time > stack[-1]:
                     stack.append(time)
             else:
-                stack.append((target - p) / s)
+                stack.append(time)
 
         # The stack now contains all the different times required in increasing order
         # which means they will never cross each other to form a fleet
