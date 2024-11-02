@@ -1,24 +1,28 @@
 class Solution:
     def topKFrequentElements(self, nums, k):
 
-        # This array is indexed based on count
-        # E.g. arr[6] will have an array of all numbers who appear 6 times in nums
-        arr = [[]] * (len(nums) + 1)
+        # Bucket array is indexed based on count
+        # E.g. bucket[6] will have an array of all numbers which appear 6 times in nums
+        bucket = [[]] * (len(nums) + 1)
         hashMap = {}
         res = []
-
+		
+		# Populate hashmap with {num: count} logic
         for num in nums:
             if num not in hashMap:
                 hashMap[num] = 0
             hashMap[num] += 1
 
+		# Populate bucket sort
+		# E.g. since 1 appears thrice, bucket[3] will have 1 appended to it
         for num in hashMap:
-            arr[hashMap[num]] = arr[hashMap[num]] + [num]
+            bucket[hashMap[num]] = bucket[hashMap[num]] + [num]
 
-        pointer = len(arr) - 1
-
+        pointer = len(bucket) - 1
+		
+		# Traverse bucket in reverse and populate result
         while len(res) <= k and pointer >= 0:
-            for num in arr[pointer]:
+            for num in bucket[pointer]:
                 res.append(num)
             pointer -= 1
 
