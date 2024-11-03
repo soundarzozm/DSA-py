@@ -1,5 +1,11 @@
 class Solution:
     def __init__(self):
+		# We need to check the follow three conditions:
+		# 1. Quadrants (I mean it's not exactly a quadrant but idk what to call it)
+		# 2. Column
+		# 3. Row
+
+		# Let's initialize a map that maps rows and columns to the corresponding quadrant
         self.quadMapping = {
             "00": 1,
             "01": 2,
@@ -22,7 +28,10 @@ class Solution:
                 quadIndex = self.getQuadrant(rowIndex, colIndex)
                 cell = board[rowIndex][colIndex]
                 if cell != ".":
-                    
+					# Each of the three conditions mentioned above should not contain repeating numbers
+					# So we use a set to keep track of existing numbers and check if any number is repeating
+					# Return false if any number is repeating                    
+
                     # Check row
                     if rowIndex not in rows:
                         rows[rowIndex] = set()
@@ -46,6 +55,7 @@ class Solution:
 
         return True
     
+	# Utility method that accepts the row and column indices to return a string used for quadrant mapping
     def getQuadrant(self, row, col):
         horizontal = str(row // 3)
         vertical = str(col // 3)
