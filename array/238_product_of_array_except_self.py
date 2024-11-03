@@ -30,8 +30,25 @@ class Solution:
             ans.append(prefixArray[i] * suffixArray[i])
 
         return ans
+	
+    def productExceptSelfConstantMemory(self, nums):
+		# Same logic as above, but it is given that the space taken by the output array does not count
+        ans = [1] * len(nums)
+
+        prefix = 1
+        for i in range(len(nums)):
+            ans[i] = prefix
+            prefix = prefix * nums[i]
+		
+        suffix = 1
+        for i in range(len(nums)-1, -1, -1):
+            ans[i] = ans[i] * suffix
+            suffix = suffix * nums[i]
+
+        return ans
 
 if __name__ == "__main__":
     solution = Solution()
-    nums = [-1,1,0,-3,3]
+    nums = [1,2,3,4]
     print(solution.productExceptSelf(nums))
+    print(solution.productExceptSelfConstantMemory(nums))
